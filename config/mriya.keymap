@@ -92,6 +92,26 @@
 
             tapping-term-ms = <250>;
         };
+
+        hmr_right: hmr_right {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HMR_RIGHT";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            hold-trigger-key-positions = <14 0 1 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39>;
+            tapping-term-ms = <200>;
+        };
+
+        hmr_left: hmr_left {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HMR_left";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            hold-trigger-key-positions = <6 7 8 9 10 18 19 20 21 22 30 31 32 33 34 40 41 42 43 11 23 35>;
+        };
     };
 
     macros {
@@ -131,10 +151,10 @@
 
         default_layer {
             bindings = <
-  &mt LEFT_WIN RIGHT_BRACKET  &kp Q  &kp W       &kp E      &kp R           &kp T        &kp Y        &kp U          &kp I      &kp O          &kp P      &kp LBKT
-  &kp LCTRL                   &kp A  &kp S       &kp D      &kp F           &kp G        &kp H        &kp J          &kp K      &kp L          &kp SEMI   &kp SQT
-  &kp LALT                    &kp Z  &kp X       &kp C      &kp V           &kp B        &kp N        &kp M          &kp COMMA  &kp DOT        &kp SLASH  &kp MINUS
-                                     &kp ESCAPE  &lt 2 TAB  &kp LEFT_SHIFT  &lt 1 RET    &lt 1 SPACE  &kp BACKSPACE  &lt 2 DEL  &kp BACKSLASH
+  &mt LEFT_WIN RIGHT_BRACKET  &kp Q                   &kp W              &kp E                 &kp R           &kp T        &kp Y        &kp U                   &kp I                   &kp O               &kp P                        &kp LBKT
+  &kp LCTRL                   &hmr_left LEFT_SHIFT A  &hmr_left LCTRL S  &hmr_left LEFT_ALT D  &kp F           &kp G        &kp H        &hmr_right RIGHT_GUI J  &hmr_right RIGHT_ALT K  &hmr_right RCTRL L  &hmr_right RIGHT_SHIFT SEMI  &kp SQT
+  &kp LALT                    &kp Z                   &kp X              &kp C                 &kp V           &kp B        &kp N        &kp M                   &kp COMMA               &kp DOT             &kp SLASH                    &kp MINUS
+                                                      &kp ESCAPE         &lt 2 TAB             &kp LEFT_SHIFT  &lt 1 RET    &lt 1 SPACE  &kp BACKSPACE           &lt 2 DEL               &kp BACKSLASH
             >;
         };
 
